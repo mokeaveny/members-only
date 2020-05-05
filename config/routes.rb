@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 	resources :users, only: [:new, :create]
 
-	root 'sessions#welcome'
+	resources :posts, only: [:new, :create, :index]
+
+	root 'posts#index'
 
 	get 'login', to: 'sessions#new'
 
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
 	
 	get 'welcome', to: 'sessions#welcome'
 
-	get 'authorized', to: 'sessions#page_requires_login'
+	get 'authorized', to: 'posts#new'
 
 end
