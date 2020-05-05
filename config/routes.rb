@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 	root 'sessions#welcome'
 
 	get 'login', to: 'sessions#new'
+
+	get 'signup', to: 'users#new'
 	
 	post 'login', to: 'sessions#create'
+
+	get 'logout', to: 'sessions#destroy'
 	
 	get 'welcome', to: 'sessions#welcome'
 

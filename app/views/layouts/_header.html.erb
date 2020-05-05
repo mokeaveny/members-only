@@ -1,0 +1,7 @@
+<% if logged_in? %>
+	Hello, <%= current_user.username %>! Hope you're having a good day!
+	<%= link_to "Log Out", '/logout' %>
+<% else %>
+	<%= link_to "Log In", '/login', method: :get %>
+	<%= link_to "Sign Up", '/users/new', method: :get %>
+<% end %>

@@ -16,9 +16,16 @@ class SessionsController < ApplicationController
 			redirect_to '/authorized'
 
 		else
+			flash.now[:danger] = 'Invalid email/password'
 			redirect_to '/login'
 		end
   end
+
+	def destroy
+		session[:user_id] = nil
+		redirect_to '/welcome', notice: "Logged out!"
+	end
+		
 
 	def page_requires_login
 	end
